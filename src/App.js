@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Header from "./comps/Header";
+import { datas } from "./data";
+import Card from "./comps/Card";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="CardContainer">
+        {datas.map((data, index) => (
+          <Card
+            num={index + 1}
+            title={data.title}
+            sub={data.sub}
+            text={data.text}
+          />
+        ))}
+      </div>
     </div>
   );
 }
